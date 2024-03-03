@@ -46,87 +46,98 @@
             // 
             // menuStrip1
             // 
+            menuStrip1.Font = new Font("Segoe UI", 10.5F);
             menuStrip1.ImageScalingSize = new Size(24, 24);
             menuStrip1.Items.AddRange(new ToolStripItem[] { aJUTORToolStripMenuItem, iNTRODUCEREDATEToolStripMenuItem, tIPARIREToolStripMenuItem, mODIFPROCENTEToolStripMenuItem, iESIREToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1467, 33);
+            menuStrip1.ShowItemToolTips = true;
+            menuStrip1.Size = new Size(1467, 38);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // aJUTORToolStripMenuItem
             // 
             aJUTORToolStripMenuItem.Name = "aJUTORToolStripMenuItem";
-            aJUTORToolStripMenuItem.Size = new Size(92, 29);
+            aJUTORToolStripMenuItem.Size = new Size(105, 34);
             aJUTORToolStripMenuItem.Text = "AJUTOR";
+            aJUTORToolStripMenuItem.ToolTipText = "Informatii ajutatoare privind modul de operare in program";
             // 
             // iNTRODUCEREDATEToolStripMenuItem
             // 
             iNTRODUCEREDATEToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { actualizareDateToolStripMenuItem, adaugareAngajatiToolStripMenuItem, stergereAngajatiToolStripMenuItem, calculSalariiToolStripMenuItem });
             iNTRODUCEREDATEToolStripMenuItem.Name = "iNTRODUCEREDATEToolStripMenuItem";
-            iNTRODUCEREDATEToolStripMenuItem.Size = new Size(192, 29);
+            iNTRODUCEREDATEToolStripMenuItem.Size = new Size(222, 34);
             iNTRODUCEREDATEToolStripMenuItem.Text = "INTRODUCERE DATE";
             // 
             // actualizareDateToolStripMenuItem
             // 
             actualizareDateToolStripMenuItem.Name = "actualizareDateToolStripMenuItem";
-            actualizareDateToolStripMenuItem.Size = new Size(270, 34);
+            actualizareDateToolStripMenuItem.Size = new Size(286, 38);
             actualizareDateToolStripMenuItem.Text = "Actualizare date";
+            actualizareDateToolStripMenuItem.ToolTipText = "Actualizarea informatiilor precum: Nume, Salar de baza, Premii Brute, Retineri";
             // 
             // adaugareAngajatiToolStripMenuItem
             // 
             adaugareAngajatiToolStripMenuItem.Name = "adaugareAngajatiToolStripMenuItem";
-            adaugareAngajatiToolStripMenuItem.Size = new Size(270, 34);
+            adaugareAngajatiToolStripMenuItem.Size = new Size(286, 38);
             adaugareAngajatiToolStripMenuItem.Text = "Adaugare angajati";
+            adaugareAngajatiToolStripMenuItem.ToolTipText = "Permite adaugarea unui angajat";
             // 
             // stergereAngajatiToolStripMenuItem
             // 
             stergereAngajatiToolStripMenuItem.Name = "stergereAngajatiToolStripMenuItem";
-            stergereAngajatiToolStripMenuItem.Size = new Size(270, 34);
+            stergereAngajatiToolStripMenuItem.Size = new Size(286, 38);
             stergereAngajatiToolStripMenuItem.Text = "Stergere angajati";
+            stergereAngajatiToolStripMenuItem.ToolTipText = "Permite stergerea unui angajat";
             // 
             // calculSalariiToolStripMenuItem
             // 
             calculSalariiToolStripMenuItem.Name = "calculSalariiToolStripMenuItem";
-            calculSalariiToolStripMenuItem.Size = new Size(270, 34);
+            calculSalariiToolStripMenuItem.Size = new Size(286, 38);
             calculSalariiToolStripMenuItem.Text = "Calcul salarii";
+            calculSalariiToolStripMenuItem.ToolTipText = "Permite calcularea salarului";
             // 
             // tIPARIREToolStripMenuItem
             // 
             tIPARIREToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { statPlataToolStripMenuItem, fluturasiToolStripMenuItem });
             tIPARIREToolStripMenuItem.Name = "tIPARIREToolStripMenuItem";
-            tIPARIREToolStripMenuItem.Size = new Size(99, 29);
+            tIPARIREToolStripMenuItem.Size = new Size(114, 34);
             tIPARIREToolStripMenuItem.Text = "TIPARIRE";
             // 
             // statPlataToolStripMenuItem
             // 
             statPlataToolStripMenuItem.Name = "statPlataToolStripMenuItem";
-            statPlataToolStripMenuItem.Size = new Size(188, 34);
+            statPlataToolStripMenuItem.Size = new Size(203, 38);
             statPlataToolStripMenuItem.Text = "Stat plata";
+            statPlataToolStripMenuItem.ToolTipText = "Afiseaza pe ecran statutul de plata";
             // 
             // fluturasiToolStripMenuItem
             // 
             fluturasiToolStripMenuItem.Name = "fluturasiToolStripMenuItem";
-            fluturasiToolStripMenuItem.Size = new Size(188, 34);
+            fluturasiToolStripMenuItem.Size = new Size(203, 38);
             fluturasiToolStripMenuItem.Text = "Fluturasi";
+            fluturasiToolStripMenuItem.ToolTipText = "Afiseaza pe ecran fluturasii";
             // 
             // mODIFPROCENTEToolStripMenuItem
             // 
             mODIFPROCENTEToolStripMenuItem.Name = "mODIFPROCENTEToolStripMenuItem";
-            mODIFPROCENTEToolStripMenuItem.Size = new Size(178, 29);
+            mODIFPROCENTEToolStripMenuItem.Size = new Size(207, 34);
             mODIFPROCENTEToolStripMenuItem.Text = "MODIF_PROCENTE";
+            mODIFPROCENTEToolStripMenuItem.ToolTipText = "Permite modificarea impozitului";
             // 
             // iESIREToolStripMenuItem
             // 
             iESIREToolStripMenuItem.Name = "iESIREToolStripMenuItem";
-            iESIREToolStripMenuItem.Size = new Size(77, 29);
+            iESIREToolStripMenuItem.Size = new Size(87, 34);
             iESIREToolStripMenuItem.Text = "IESIRE";
+            iESIREToolStripMenuItem.ToolTipText = "Iesire din program";
             // 
             // panel1
             // 
             panel1.Location = new Point(12, 49);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1377, 586);
+            panel1.Size = new Size(1433, 627);
             panel1.TabIndex = 1;
             // 
             // Form1

@@ -10,7 +10,7 @@ namespace ProiectTPBD
 {
     internal class ProiectDbContext : DbContext
     {
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Angajat> Angajati { get; set; }
 
         public ProiectDbContext()
         {
@@ -39,8 +39,8 @@ namespace ProiectTPBD
         public Blog Blog { get; set; }
     }
 
-    [Table("Employee")]
-    public class Employee
+    [Table("Angajat")]
+    public class Angajat
     {
         public int Id { get; set; }
 

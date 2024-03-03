@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1zrjswaM101n4qn+XPIh4OhmnpyQcQavAag1uRBgYmAjpAHy92G3+0aQFv6FHV4mr9+DTZ1XOyCi6WNzpr+eyQ==",
+  "dgSpecHash": "viMhkURIe6WmMBgemOwDC9pQrAr7t5rnYM4mjjdSCQRWtESX4Agv+5ZGOXHATWWm+WgNlA9UiyXBybepmZa6JQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\bohns\\OneDrive\\Desktop\\Proiect TPBD\\ProiectTPBD\\ProiectTPBD\\ProiectTPBD.csproj",
+  "projectFilePath": "C:\\Users\\bohns\\OneDrive\\Desktop\\TPBD\\ProiectTPBD\\ProiectTPBD.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bohns\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\bohns\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

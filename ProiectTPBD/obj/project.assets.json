@@ -2868,11 +2868,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\bohns\\OneDrive\\Desktop\\Proiect TPBD\\ProiectTPBD\\ProiectTPBD\\ProiectTPBD.csproj",
+      "projectUniqueName": "C:\\Users\\bohns\\OneDrive\\Desktop\\TPBD\\ProiectTPBD\\ProiectTPBD.csproj",
       "projectName": "ProiectTPBD",
-      "projectPath": "C:\\Users\\bohns\\OneDrive\\Desktop\\Proiect TPBD\\ProiectTPBD\\ProiectTPBD\\ProiectTPBD.csproj",
+      "projectPath": "C:\\Users\\bohns\\OneDrive\\Desktop\\TPBD\\ProiectTPBD\\ProiectTPBD.csproj",
       "packagesPath": "C:\\Users\\bohns\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\bohns\\OneDrive\\Desktop\\Proiect TPBD\\ProiectTPBD\\ProiectTPBD\\obj\\",
+      "outputPath": "C:\\Users\\bohns\\OneDrive\\Desktop\\TPBD\\ProiectTPBD\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
