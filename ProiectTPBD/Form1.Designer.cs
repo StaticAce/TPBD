@@ -137,7 +137,7 @@
             // 
             panel1.Location = new Point(12, 49);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1433, 627);
+            panel1.Size = new Size(1443, 627);
             panel1.TabIndex = 1;
             // 
             // Form1

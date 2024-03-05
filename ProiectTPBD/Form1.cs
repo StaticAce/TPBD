@@ -9,7 +9,7 @@ namespace ProiectTPBD
 
             var firstEmployee = db.Angajati.OrderBy(x=>x.Id).Last();
 
-            MessageBox.Show(firstEmployee.Nume.ToString());
+            //MessageBox.Show(firstEmployee.Nume.ToString());
 
             aJUTORToolStripMenuItem.Click += AJUTORToolStripMenuItem_Click;
             iNTRODUCEREDATEToolStripMenuItem.Click += INTRODUCEREDATEToolStripMenuItem_Click;
@@ -62,7 +62,34 @@ namespace ProiectTPBD
 
         private void ActualizareDateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            DataGridView dataGridView = new DataGridView();
+            TextBox textBox = new TextBox();
+            Button buttonSearch = new Button();
+
+            //DataGridView
+            dataGridView.Anchor = AnchorStyles.Left | AnchorStyles.Top;
+            dataGridView.Location = new Point(0, 0);
+            dataGridView.Size = new Size(700, panel1.Height);
+
+            //TextBox
+            textBox.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            textBox.Location = new Point(panel1.Width - textBox.Width - 80, 50);
+            textBox.Size = new Size(150, 50);
+
+            //buttonSearch
+            buttonSearch.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            buttonSearch.Location = new Point(panel1.Width - buttonSearch.Width - 105, 150);
+            buttonSearch.Size = new Size(150, 50);
+            buttonSearch.Text = "Cautare";
+
+            var db = new ProiectDbContext();
+            dataGridView.DataSource = db.Angajati.ToList();
+
+            panel1.Controls.Clear();
+            panel1.Controls.Add(dataGridView);
+            panel1.Controls.Add(textBox);
+            panel1.Controls.Add(buttonSearch);
+
         }
 
         private void IESIREToolStripMenuItem_Click(object sender, EventArgs e)
@@ -88,7 +115,7 @@ namespace ProiectTPBD
 
         private void INTRODUCEREDATEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+
         }
 
         private void AJUTORToolStripMenuItem_Click(object sender, EventArgs e)
