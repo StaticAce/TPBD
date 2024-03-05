@@ -52,35 +52,67 @@ namespace ProiectTPBD
 
         private void StergereAngajatiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
-        }
-
-        private void AdaugareAngajatiToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void ActualizareDateToolStripMenuItem_Click(object sender, EventArgs e)
-        {
             DataGridView dataGridView = new DataGridView();
             TextBox textBox = new TextBox();
             Button buttonSearch = new Button();
+            Label label = new Label();
 
-            //DataGridView
+            // DataGridView
             dataGridView.Anchor = AnchorStyles.Left | AnchorStyles.Top;
             dataGridView.Location = new Point(0, 0);
             dataGridView.Size = new Size(700, panel1.Height);
 
-            //TextBox
+            // TextBox
             textBox.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            label.Font = new Font(label.Font.FontFamily, 10);
+            label.Text = "Introduceti un nume: ";
+            label.AutoSize = true;
             textBox.Location = new Point(panel1.Width - textBox.Width - 80, 50);
             textBox.Size = new Size(150, 50);
 
-            //buttonSearch
+            // buttonSearch
             buttonSearch.Anchor = AnchorStyles.Right | AnchorStyles.Top;
             buttonSearch.Location = new Point(panel1.Width - buttonSearch.Width - 105, 150);
             buttonSearch.Size = new Size(150, 50);
             buttonSearch.Text = "Cautare";
+
+            // Label
+            label.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            label.Location = new Point(panel1.Width - label.Width - 270, 50);
+            label.Size = new Size(150, 50);
+
+            buttonSearch.Click += (searchSender, searchEventArgs) =>
+            {
+                string searchValue = textBox.Text.Trim().ToLower();
+
+                dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                try
+                {
+                    var db = new ProiectDbContext();
+                    var angajati = db.Angajati.ToList();
+
+                    List<Angajat> filteredAngajati = new List<Angajat>();
+
+                    foreach (var angajat in angajati)
+                    {
+                        foreach (var property in angajat.GetType().GetProperties())
+                        {
+                            var value = property.GetValue(angajat);
+                            if (value != null && value.ToString().ToLower().Contains(searchValue))
+                            {
+                                filteredAngajati.Add(angajat);
+                                break;
+                            }
+                        }
+                    }
+
+                    dataGridView.DataSource = filteredAngajati;
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
+            };
 
             var db = new ProiectDbContext();
             dataGridView.DataSource = db.Angajati.ToList();
@@ -89,7 +121,155 @@ namespace ProiectTPBD
             panel1.Controls.Add(dataGridView);
             panel1.Controls.Add(textBox);
             panel1.Controls.Add(buttonSearch);
+            panel1.Controls.Add(label);
+        }
 
+        private void AdaugareAngajatiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataGridView dataGridView = new DataGridView();
+            TextBox textBox = new TextBox();
+            Button buttonSearch = new Button();
+            Label label = new Label();
+
+            // DataGridView
+            dataGridView.Anchor = AnchorStyles.Left | AnchorStyles.Top;
+            dataGridView.Location = new Point(0, 0);
+            dataGridView.Size = new Size(700, panel1.Height);
+
+            // TextBox
+            textBox.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            label.Font = new Font(label.Font.FontFamily, 10);
+            label.Text = "Introduceti un nume: ";
+            label.AutoSize = true;
+            textBox.Location = new Point(panel1.Width - textBox.Width - 80, 50);
+            textBox.Size = new Size(150, 50);
+
+            // buttonSearch
+            buttonSearch.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            buttonSearch.Location = new Point(panel1.Width - buttonSearch.Width - 105, 150);
+            buttonSearch.Size = new Size(150, 50);
+            buttonSearch.Text = "Cautare";
+
+            // Label
+            label.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            label.Location = new Point(panel1.Width - label.Width - 270, 50);
+            label.Size = new Size(150, 50);
+
+            buttonSearch.Click += (searchSender, searchEventArgs) =>
+            {
+                string searchValue = textBox.Text.Trim().ToLower();
+
+                dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                try
+                {
+                    var db = new ProiectDbContext();
+                    var angajati = db.Angajati.ToList();
+
+                    List<Angajat> filteredAngajati = new List<Angajat>();
+
+                    foreach (var angajat in angajati)
+                    {
+                        foreach (var property in angajat.GetType().GetProperties())
+                        {
+                            var value = property.GetValue(angajat);
+                            if (value != null && value.ToString().ToLower().Contains(searchValue))
+                            {
+                                filteredAngajati.Add(angajat);
+                                break;
+                            }
+                        }
+                    }
+
+                    dataGridView.DataSource = filteredAngajati;
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
+            };
+
+            var db = new ProiectDbContext();
+            dataGridView.DataSource = db.Angajati.ToList();
+
+            panel1.Controls.Clear();
+            panel1.Controls.Add(dataGridView);
+            panel1.Controls.Add(textBox);
+            panel1.Controls.Add(buttonSearch);
+            panel1.Controls.Add(label);
+        }
+
+        private void ActualizareDateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataGridView dataGridView = new DataGridView();
+            TextBox textBox = new TextBox();
+            Button buttonSearch = new Button();
+            Label label = new Label();
+
+            // DataGridView
+            dataGridView.Anchor = AnchorStyles.Left | AnchorStyles.Top;
+            dataGridView.Location = new Point(0, 0);
+            dataGridView.Size = new Size(700, panel1.Height);
+
+            // TextBox
+            textBox.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            label.Font = new Font(label.Font.FontFamily, 10);
+            label.Text = "Introduceti un nume: ";
+            label.AutoSize = true;
+            textBox.Location = new Point(panel1.Width - textBox.Width - 80, 50);
+            textBox.Size = new Size(150, 50);
+
+            // buttonSearch
+            buttonSearch.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            buttonSearch.Location = new Point(panel1.Width - buttonSearch.Width - 105, 150);
+            buttonSearch.Size = new Size(150, 50);
+            buttonSearch.Text = "Cautare";
+
+            // Label
+            label.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            label.Location = new Point(panel1.Width - label.Width - 270, 50);
+            label.Size = new Size(150, 50);
+
+            buttonSearch.Click += (searchSender, searchEventArgs) =>
+            {
+                string searchValue = textBox.Text.Trim().ToLower();
+
+                dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                try
+                {
+                    var db = new ProiectDbContext();
+                    var angajati = db.Angajati.ToList();
+
+                    List<Angajat> filteredAngajati = new List<Angajat>();
+
+                    foreach (var angajat in angajati)
+                    {
+                        foreach (var property in angajat.GetType().GetProperties())
+                        {
+                            var value = property.GetValue(angajat);
+                            if (value != null && value.ToString().ToLower().Contains(searchValue))
+                            {
+                                filteredAngajati.Add(angajat);
+                                break;
+                            }
+                        }
+                    }
+
+                    dataGridView.DataSource = filteredAngajati;
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
+            };
+
+            var db = new ProiectDbContext();
+            dataGridView.DataSource = db.Angajati.ToList();
+
+            panel1.Controls.Clear();
+            panel1.Controls.Add(dataGridView);
+            panel1.Controls.Add(textBox);
+            panel1.Controls.Add(buttonSearch);
+            panel1.Controls.Add(label);
         }
 
         private void IESIREToolStripMenuItem_Click(object sender, EventArgs e)
