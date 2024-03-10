@@ -1,5 +1,38 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace ProiectTPBD
 {
+    public class CustomMessageBox : Form
+    {
+        public DialogResult Result { get; private set; }
+
+        public CustomMessageBox(string text, string title)
+        {
+            this.Text = title;
+            Label label = new Label() { Text = text, AutoSize = true };
+            this.Controls.Add(label);
+
+            Button yesButton = new Button() { Text = "Da", DialogResult = DialogResult.Yes };
+            yesButton.Click += (sender, e) => { this.Result = DialogResult.Yes; this.Close(); };
+            this.Controls.Add(yesButton);
+
+            Button noButton = new Button() { Text = "Nu", DialogResult = DialogResult.No };
+            noButton.Click += (sender, e) => { this.Result = DialogResult.No; this.Close(); };
+            this.Controls.Add(noButton);
+
+            this.Size = new Size(550, 260);
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            // Center the label and buttons
+            label.Location = new Point((this.ClientSize.Width - label.Width) / 2, 40);
+            yesButton.Size = new Size(100, 40);
+            yesButton.Location = new Point((this.ClientSize.Width - yesButton.Width * 2 - 10) / 2, label.Bottom + 40);
+            noButton.Size = new Size(100, 40);
+            noButton.Location = new Point(yesButton.Right + 10, label.Bottom + 40);
+        }
+    }
+
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -229,6 +262,10 @@ namespace ProiectTPBD
             label.Location = new Point(panel1.Width - label.Width - 270, 50);
             label.Size = new Size(150, 50);
 
+            //Database connection
+            var db = new ProiectDbContext();
+            dataGridView.DataSource = db.Angajati.ToList();       
+
             buttonSearch.Click += (searchSender, searchEventArgs) =>
             {
                 string searchValue = textBox.Text.Trim().ToLower();
@@ -262,8 +299,28 @@ namespace ProiectTPBD
                 }
             };
 
-            var db = new ProiectDbContext();
-            dataGridView.DataSource = db.Angajati.ToList();
+            dataGridView.CellBeginEdit += (cellSender, cellEventArgs) =>
+            {
+                if (dataGridView.Columns[cellEventArgs.ColumnIndex].Name != "Nume")
+                {
+                    cellEventArgs.Cancel = true;
+                }
+            };
+
+            dataGridView.CellValueChanged += (cellSender, cellEventArgs) =>
+            {
+                try
+                {
+                    var db = new ProiectDbContext();
+                    var angajat = (Angajat)dataGridView.Rows[cellEventArgs.RowIndex].DataBoundItem;
+                    db.Entry(angajat).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message);
+                }
+            };
 
             panel1.Controls.Clear();
             panel1.Controls.Add(dataGridView);
@@ -274,14 +331,13 @@ namespace ProiectTPBD
 
         private void IESIREToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show("Vreti sa parasiti programul?",
-                                     "Actiunea necesita confirmare",
-                                     MessageBoxButtons.YesNo);
+            var confirmResult = new CustomMessageBox("Vreti sa parasiti programul?", "Actiunea necesita confirmare").ShowDialog();
             if (confirmResult == DialogResult.Yes)
             {
                 Application.Exit();
             }
         }
+
 
         private void MODIFPROCENTEToolStripMenuItem_Click(object sender, EventArgs e)
         {
