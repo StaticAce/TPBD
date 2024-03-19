@@ -109,6 +109,7 @@ namespace ProiectTPBD
             dataGridView.Anchor = AnchorStyles.Left | AnchorStyles.Top;
             dataGridView.Location = new Point(0, 0);
             dataGridView.Size = new Size(1750, panel1.Height);
+            dataGridView.ReadOnly = true;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
 
             // TextBox
@@ -445,7 +446,6 @@ namespace ProiectTPBD
                     int impozit = (int)(brutImpozabil * ((double)calculare.Impozit / 100));
                     int viratcard = totalBrut - impozit - cas - cass;
 
-
                     var angajat = new Angajat
                     {
                         Nume = nume,
@@ -501,26 +501,141 @@ namespace ProiectTPBD
             dataGridView.Anchor = AnchorStyles.Left | AnchorStyles.Top;
             dataGridView.Location = new Point(0, 0);
             dataGridView.Size = new Size(1750, panel1.Height);
+            dataGridView.ReadOnly = true;
             dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
 
             // TextBox
             textBox.Anchor = AnchorStyles.Right | AnchorStyles.Top;
             label.Font = new Font(label.Font.FontFamily, 10);
-            label.Text = "Introduceti un nume: ";
+            label.Text = "Cautati dupa o valoare:";
             label.AutoSize = true;
             textBox.Location = new Point(panel1.Width - textBox.Width - 80, 50);
             textBox.Size = new Size(150, 50);
 
             // buttonSearch
             buttonSearch.Anchor = AnchorStyles.Right | AnchorStyles.Top;
-            buttonSearch.Location = new Point(panel1.Width - buttonSearch.Width - 105, 150);
+            buttonSearch.Location = new Point(panel1.Width - buttonSearch.Width - 105, 105);
             buttonSearch.Size = new Size(150, 50);
             buttonSearch.Text = "Cautare";
 
             // Label
             label.Anchor = AnchorStyles.Right | AnchorStyles.Top;
-            label.Location = new Point(panel1.Width - label.Width - 270, 50);
+            label.Location = new Point(panel1.Width - label.Width - 295, 50);
             label.Size = new Size(150, 50);
+            label.Font = new Font(label.Font.FontFamily, 10);
+
+            // Label for Nume
+            Label labelNume = new Label();
+            labelNume.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            labelNume.Location = new Point(panel1.Width - labelNume.Width - 280, 200);
+            labelNume.Size = new Size(150, 50);
+            labelNume.Text = ("Nume:");
+            labelNume.Font = new Font(labelNume.Font.FontFamily, 10);
+
+            // TextBox for nume
+            TextBox textBoxNume = new TextBox();
+            textBoxNume.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            textBoxNume.Location = new Point(panel1.Width - textBoxNume.Width - 80, 200);
+            textBoxNume.Size = new Size(150, 50);
+
+            // Label for Prenume
+            Label labelPrenume = new Label();
+            labelPrenume.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            labelPrenume.Location = new Point(panel1.Width - labelPrenume.Width - 280, 250);
+            labelPrenume.Size = new Size(150, 50);
+            labelPrenume.Text = ("Prenume:");
+            labelPrenume.Font = new Font(labelPrenume.Font.FontFamily, 10);
+
+            // TextBox for Prenume
+            TextBox textBoxPrenume = new TextBox();
+            textBoxPrenume.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            textBoxPrenume.Location = new Point(panel1.Width - textBoxPrenume.Width - 80, 250);
+            textBoxPrenume.Size = new Size(150, 50);
+
+            // Label for Functie
+            Label labelFunctie = new Label();
+            labelFunctie.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            labelFunctie.Location = new Point(panel1.Width - labelFunctie.Width - 280, 300);
+            labelFunctie.Size = new Size(150, 50);
+            labelFunctie.Text = ("Functie:");
+            labelFunctie.Font = new Font(labelFunctie.Font.FontFamily, 10);
+
+            // TextBox for Functie
+            TextBox textBoxFunctie = new TextBox();
+            textBoxFunctie.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            textBoxFunctie.Location = new Point(panel1.Width - textBoxFunctie.Width - 80, 300);
+            textBoxFunctie.Size = new Size(150, 50);
+
+            // Label for Salar_baza
+            Label labelSalarBaza = new Label();
+            labelSalarBaza.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            labelSalarBaza.Location = new Point(panel1.Width - labelSalarBaza.Width - 280, 350);
+            labelSalarBaza.Size = new Size(150, 50);
+            labelSalarBaza.Text = ("Salar de bază:");
+            labelSalarBaza.Font = new Font(labelSalarBaza.Font.FontFamily, 10);
+
+            // TextBox for Salar_baza
+            TextBox textBoxSalarBaza = new TextBox();
+            textBoxSalarBaza.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            textBoxSalarBaza.Location = new Point(panel1.Width - textBoxSalarBaza.Width - 80, 350);
+            textBoxSalarBaza.Size = new Size(150, 50);
+
+            // Label for Spor
+            Label labelSpor = new Label();
+            labelSpor.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            labelSpor.Location = new Point(panel1.Width - labelSpor.Width - 280, 400);
+            labelSpor.Size = new Size(150, 50);
+            labelSpor.Text = ("Spor:");
+            labelSpor.Font = new Font(labelSpor.Font.FontFamily, 10);
+
+            // TextBox for Spor
+            TextBox textBoxSpor = new TextBox();
+            textBoxSpor.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            textBoxSpor.Location = new Point(panel1.Width - textBoxSpor.Width - 80, 400);
+            textBoxSpor.Size = new Size(150, 50);
+
+            // Label for Retineri
+            Label labelRetineri = new Label();
+            labelRetineri.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            labelRetineri.Location = new Point(panel1.Width - labelRetineri.Width - 280, 450);
+            labelRetineri.Size = new Size(150, 50);
+            labelRetineri.Text = ("Retineri:");
+            labelRetineri.Font = new Font(labelRetineri.Font.FontFamily, 10);
+
+            // TextBox for Retineri
+            TextBox textBoxRetineri = new TextBox();
+            textBoxRetineri.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            textBoxRetineri.Location = new Point(panel1.Width - textBoxRetineri.Width - 80, 450);
+            textBoxRetineri.Size = new Size(150, 50);
+
+            // Label for Premii Brute
+            Label labelPremiiBrute = new Label();
+            labelPremiiBrute.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            labelPremiiBrute.Location = new Point(panel1.Width - labelPremiiBrute.Width - 280, 500);
+            labelPremiiBrute.Size = new Size(150, 50);
+            labelPremiiBrute.Text = ("Premii brute:");
+            labelPremiiBrute.Font = new Font(labelPremiiBrute.Font.FontFamily, 10);
+
+            // TextBox for Premii Brute
+            TextBox textBoxPremiiBrute = new TextBox();
+            textBoxPremiiBrute.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            textBoxPremiiBrute.Location = new Point(panel1.Width - textBoxPremiiBrute.Width - 80, 500);
+            textBoxPremiiBrute.Size = new Size(150, 50);
+
+            // Button for adding new object
+            Button buttonAdd = new Button();
+            buttonAdd.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            buttonAdd.Location = new Point(panel1.Width - buttonAdd.Width - 105, 550);
+            buttonAdd.Size = new Size(150, 50);
+            buttonAdd.Text = "Actualizare";
+
+            // Label for error message
+            Label labelError = new Label();
+            labelError.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            labelError.Location = new Point(panel1.Width - labelError.Width - 80, 600);
+            labelError.Size = new Size(150, 200);
+            labelError.ForeColor = Color.Red;
+            labelError.Font = new Font(labelError.Font.FontFamily, 10);
 
             //Database connection
             var db = new ProiectDbContext();
@@ -559,34 +674,118 @@ namespace ProiectTPBD
                 }
             };
 
-            dataGridView.CellBeginEdit += (cellSender, cellEventArgs) =>
+            dataGridView.SelectionChanged += (selectionSender, selectionEventArgs) =>
             {
-                if (dataGridView.Columns[cellEventArgs.ColumnIndex].Name != "Nume")
+                if (dataGridView.SelectedRows.Count > 0)
                 {
-                    cellEventArgs.Cancel = true;
+                    DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
+
+                    textBoxNume.Text = selectedRow.Cells["Nume"].Value.ToString();
+                    textBoxPrenume.Text = selectedRow.Cells["Prenume"].Value.ToString();
+                    textBoxFunctie.Text = selectedRow.Cells["Functie"].Value.ToString();
+                    textBoxSalarBaza.Text = selectedRow.Cells["Salar_baza"].Value.ToString();
+                    textBoxSpor.Text = selectedRow.Cells["Spor"].Value.ToString();
+                    textBoxRetineri.Text = selectedRow.Cells["Retineri"].Value.ToString();
+                    textBoxPremiiBrute.Text = selectedRow.Cells["Premii_brute"].Value.ToString();
                 }
             };
 
-            dataGridView.CellValueChanged += (cellSender, cellEventArgs) =>
+            buttonAdd.Click += (updateSender, updateEventArgs) =>
             {
-                try
+                if (dataGridView.SelectedRows.Count > 0)
                 {
-                    var db = new ProiectDbContext();
-                    var angajat = (Angajat)dataGridView.Rows[cellEventArgs.RowIndex].DataBoundItem;
-                    db.Entry(angajat).State = EntityState.Modified;
-                    db.SaveChanges();
+                    DataGridViewRow selectedRow = dataGridView.SelectedRows[0];
+                    int selectedNrCrt = Convert.ToInt32(selectedRow.Cells["NrCrt"].Value);
+
+                    try
+                    {
+                        var db = new ProiectDbContext();
+                        var angajatToUpdate = db.Angajati.FirstOrDefault(a => a.NrCrt == selectedNrCrt);
+                        var calculare = db.Calculare.FirstOrDefault();
+
+                        if (angajatToUpdate != null)
+                        {
+                            if ((Convert.ToInt32(textBoxRetineri.Text) - angajatToUpdate.Virat_Card) > 0)
+                            {
+                                labelError.Text = "Retinerile depasesc salarul!";
+                                labelError.Visible = true;
+                                System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer() { Interval = 3000 };
+                                timer.Tick += (timerSender, timerEventArgs) =>
+                                {
+                                    labelError.Visible = false;
+                                    timer.Stop();
+                                };
+                                timer.Start();
+                            }
+                            else
+                            {
+                                angajatToUpdate.Nume = textBoxNume.Text;
+                                angajatToUpdate.Prenume = textBoxPrenume.Text;
+                                angajatToUpdate.Functie = textBoxFunctie.Text;
+                                angajatToUpdate.Salar_baza = Convert.ToInt32(textBoxSalarBaza.Text);
+                                angajatToUpdate.Spor = Convert.ToInt32(textBoxSpor.Text);
+                                angajatToUpdate.Retineri = Convert.ToInt32(textBoxRetineri.Text);
+                                angajatToUpdate.Premii_brute = Convert.ToInt32(textBoxPremiiBrute.Text);
+
+                                int totalBrut = angajatToUpdate.Salar_baza + (int)(angajatToUpdate.Salar_baza * ((double)angajatToUpdate.Spor / 100)) + (int)angajatToUpdate.Premii_brute;
+
+                                int cas = (int)(totalBrut * ((double)calculare.Cas / 100));
+                                int cass = (int)(totalBrut * ((double)calculare.Cass / 100));
+                                int brutImpozabil = (int)(totalBrut - cas - cass);
+                                int impozit = (int)(brutImpozabil * ((double)calculare.Impozit / 100));
+                                int viratcard = totalBrut - impozit - cas - cass - angajatToUpdate.Retineri;
+
+                                angajatToUpdate.Total_brut = totalBrut;
+                                angajatToUpdate.Cas = cas;
+                                angajatToUpdate.Cass = cass;
+                                angajatToUpdate.Brut_Impozitabil = brutImpozabil;
+                                angajatToUpdate.Impozit = impozit;
+                                angajatToUpdate.Virat_Card = viratcard;
+
+                                db.SaveChanges();
+                                dataGridView.DataSource = db.Angajati.ToList();
+
+                                MessageBox.Show("Datele au fost actualizate cu succes!");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Angajatul nu a putut fi găsit în baza de date.");
+                        }
+                    }
+                    catch (Exception exc)
+                    {
+                        MessageBox.Show("A apărut o eroare la actualizarea angajatului: " + exc.Message);
+                    }
                 }
-                catch (Exception exc)
+                else
                 {
-                    MessageBox.Show(exc.Message);
+                    MessageBox.Show("Nu a fost selectat niciun angajat pentru actualizare.");
                 }
             };
+
 
             panel1.Controls.Clear();
             panel1.Controls.Add(dataGridView);
             panel1.Controls.Add(textBox);
             panel1.Controls.Add(buttonSearch);
             panel1.Controls.Add(label);
+            panel1.Controls.Add(textBoxNume);
+            panel1.Controls.Add(textBoxPrenume);
+            panel1.Controls.Add(textBoxFunctie);
+            panel1.Controls.Add(textBoxSalarBaza);
+            panel1.Controls.Add(textBoxSpor);
+            panel1.Controls.Add(labelError);
+            panel1.Controls.Add(buttonAdd);
+            panel1.Controls.Add(labelNume);
+            panel1.Controls.Add(labelPrenume);
+            panel1.Controls.Add(labelFunctie);
+            panel1.Controls.Add(labelSalarBaza);
+            panel1.Controls.Add(labelSpor);
+            panel1.Controls.Add(labelRetineri);
+            panel1.Controls.Add(textBoxRetineri);
+            panel1.Controls.Add(labelPremiiBrute);
+            panel1.Controls.Add(textBoxPremiiBrute);
         }
 
         private void IESIREToolStripMenuItem_Click(object sender, EventArgs e)

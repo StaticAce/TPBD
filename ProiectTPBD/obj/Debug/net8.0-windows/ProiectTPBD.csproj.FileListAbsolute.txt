@@ -114,7 +114,6 @@ C:\Users\bohns\OneDrive\Desktop\TPBD\ProiectTPBD\bin\Debug\net8.0-windows\runtim
 C:\Users\bohns\OneDrive\Desktop\TPBD\ProiectTPBD\bin\Debug\net8.0-windows\runtimes\win-x86\native\WebView2Loader.dll
 C:\Users\bohns\OneDrive\Desktop\TPBD\ProiectTPBD\bin\Debug\net8.0-windows\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\bohns\OneDrive\Desktop\TPBD\ProiectTPBD\obj\Debug\net8.0-windows\ProiectTPBD.csproj.AssemblyReference.cache
-C:\Users\bohns\OneDrive\Desktop\TPBD\ProiectTPBD\obj\Debug\net8.0-windows\ProiectTPBD.Form1.resources
 C:\Users\bohns\OneDrive\Desktop\TPBD\ProiectTPBD\obj\Debug\net8.0-windows\ProiectTPBD.csproj.GenerateResource.cache
 C:\Users\bohns\OneDrive\Desktop\TPBD\ProiectTPBD\obj\Debug\net8.0-windows\ProiectTPBD.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\bohns\OneDrive\Desktop\TPBD\ProiectTPBD\obj\Debug\net8.0-windows\ProiectTPBD.AssemblyInfoInputs.cache
@@ -127,3 +126,4 @@ C:\Users\bohns\OneDrive\Desktop\TPBD\ProiectTPBD\obj\Debug\net8.0-windows\refint
 C:\Users\bohns\OneDrive\Desktop\TPBD\ProiectTPBD\obj\Debug\net8.0-windows\ProiectTPBD.pdb
 C:\Users\bohns\OneDrive\Desktop\TPBD\ProiectTPBD\obj\Debug\net8.0-windows\ProiectTPBD.genruntimeconfig.cache
 C:\Users\bohns\OneDrive\Desktop\TPBD\ProiectTPBD\obj\Debug\net8.0-windows\ref\ProiectTPBD.dll
+C:\Users\bohns\OneDrive\Desktop\TPBD\ProiectTPBD\obj\Debug\net8.0-windows\ProiectTPBD.CustomMessageBox.resources
