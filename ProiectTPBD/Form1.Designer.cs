@@ -34,7 +34,6 @@
             actualizareDateToolStripMenuItem = new ToolStripMenuItem();
             adaugareAngajatiToolStripMenuItem = new ToolStripMenuItem();
             stergereAngajatiToolStripMenuItem = new ToolStripMenuItem();
-            calculSalariiToolStripMenuItem = new ToolStripMenuItem();
             tIPARIREToolStripMenuItem = new ToolStripMenuItem();
             statPlataToolStripMenuItem = new ToolStripMenuItem();
             fluturasiToolStripMenuItem = new ToolStripMenuItem();
@@ -65,7 +64,7 @@
             // 
             // iNTRODUCEREDATEToolStripMenuItem
             // 
-            iNTRODUCEREDATEToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { actualizareDateToolStripMenuItem, adaugareAngajatiToolStripMenuItem, stergereAngajatiToolStripMenuItem, calculSalariiToolStripMenuItem });
+            iNTRODUCEREDATEToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { actualizareDateToolStripMenuItem, adaugareAngajatiToolStripMenuItem, stergereAngajatiToolStripMenuItem });
             iNTRODUCEREDATEToolStripMenuItem.Name = "iNTRODUCEREDATEToolStripMenuItem";
             iNTRODUCEREDATEToolStripMenuItem.Size = new Size(222, 34);
             iNTRODUCEREDATEToolStripMenuItem.Text = "INTRODUCERE DATE";
@@ -90,13 +89,6 @@
             stergereAngajatiToolStripMenuItem.Size = new Size(286, 38);
             stergereAngajatiToolStripMenuItem.Text = "Stergere angajati";
             stergereAngajatiToolStripMenuItem.ToolTipText = "Permite stergerea unui angajat";
-            // 
-            // calculSalariiToolStripMenuItem
-            // 
-            calculSalariiToolStripMenuItem.Name = "calculSalariiToolStripMenuItem";
-            calculSalariiToolStripMenuItem.Size = new Size(286, 38);
-            calculSalariiToolStripMenuItem.Text = "Calcul salarii";
-            calculSalariiToolStripMenuItem.ToolTipText = "Permite calcularea salarului";
             // 
             // tIPARIREToolStripMenuItem
             // 
@@ -164,7 +156,6 @@
         private ToolStripMenuItem actualizareDateToolStripMenuItem;
         private ToolStripMenuItem adaugareAngajatiToolStripMenuItem;
         private ToolStripMenuItem stergereAngajatiToolStripMenuItem;
-        private ToolStripMenuItem calculSalariiToolStripMenuItem;
         private ToolStripMenuItem tIPARIREToolStripMenuItem;
         private ToolStripMenuItem statPlataToolStripMenuItem;
         private ToolStripMenuItem fluturasiToolStripMenuItem;

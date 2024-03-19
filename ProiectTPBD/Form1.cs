@@ -64,7 +64,6 @@ namespace ProiectTPBD
             actualizareDateToolStripMenuItem.Click += ActualizareDateToolStripMenuItem_Click;
             adaugareAngajatiToolStripMenuItem.Click += AdaugareAngajatiToolStripMenuItem_Click;
             stergereAngajatiToolStripMenuItem.Click += StergereAngajatiToolStripMenuItem_Click;
-            calculSalariiToolStripMenuItem.Click += CalculSalariiToolStripMenuItem_Click;
 
             statPlataToolStripMenuItem.Click += StatPlataToolStripMenuItem_Click;
             fluturasiToolStripMenuItem.Click += FluturasiToolStripMenuItem_Click;
@@ -74,10 +73,11 @@ namespace ProiectTPBD
             //Mesaj initial -> Nici una din optiuni selectate
             panel1.Controls.Clear();
             Label label = new();
-            label.Text = "Mesaj Initial";
+            label.Text = "Proiect TPBD";
             label.AutoSize = true;
-            label.Location = new Point(2, 2);
-            label.Font = new Font(label.Font.FontFamily, 10);
+            label.Location = new Point(700, 100);
+            label.Font = new Font(label.Font.FontFamily, 60);
+            label.TextAlign = ContentAlignment.TopCenter;
             panel1.Controls.Add(label);
         }
 
@@ -87,11 +87,6 @@ namespace ProiectTPBD
         }
 
         private void StatPlataToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void CalculSalariiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
@@ -800,7 +795,170 @@ namespace ProiectTPBD
 
         private void MODIFPROCENTEToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            DataGridView dataGridView = new DataGridView();
+            TextBox textBox = new TextBox();
+            Button buttonSearch = new Button();
+            Label label = new Label();
+
+            // Label for Nume
+            Label labelCas = new Label();
+            labelCas.Text = "Cas:";
+            labelCas.AutoSize = true;
+            labelCas.Font = new Font(labelCas.Font.FontFamily, 15);
+
+            // TextBox for Nume
+            TextBox textBoxCas = new TextBox();
+            textBoxCas.Size = new Size(200, 60);
+
+            // Label for Prenume
+            Label labelCass = new Label();
+            labelCass.Text = "Cass:";
+            labelCass.AutoSize = true;
+            labelCass.Font = new Font(labelCass.Font.FontFamily, 15);
+
+            // TextBox for Prenume
+            TextBox textBoxCass = new TextBox();
+            textBoxCass.Size = new Size(200, 60);
+
+            // Label for Functie
+            Label labelImpozit = new Label();
+            labelImpozit.Text = "Impozit:";
+            labelImpozit.AutoSize = true;
+            labelImpozit.Font = new Font(labelImpozit.Font.FontFamily, 15);
+
+            // TextBox for Functie
+            TextBox textBoxImpozit = new TextBox();
+            textBoxImpozit.Size = new Size(200, 60);
+
+            // Button for adding new object
+            Button buttonAdd = new Button();
+            buttonAdd.Text = "Actualizare";
+            buttonAdd.Size = new Size(200, 60);
+
+            // Label for error message
+            Label labelError = new Label();
+            labelError.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            labelError.Location = new Point(panel1.Width - labelError.Width - 1180, 670);
+            labelError.Size = new Size(1000, 100);
+            labelError.ForeColor = Color.Red;
+            labelError.Font = new Font(labelError.Font.FontFamily, 15);
+
+            // Label for error message
+            Label labelSuccess = new Label();
+            labelSuccess.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            labelSuccess.Location = new Point(panel1.Width - labelSuccess.Width - 1180, 770);
+            labelSuccess.Size = new Size(1000, 100);
+            labelSuccess.ForeColor = Color.Green;
+            labelSuccess.Font = new Font(labelSuccess.Font.FontFamily, 15);
+
+            // Calculate positions for controls
+            int panelCenterX = panel1.Width / 2;
+            int textBoxWidth = 300; // Increased width for text boxes
+            int textBoxHeight = 80; // Increased height for text boxes
+            int verticalSpacing = 40; // Increased vertical spacing
+            int startY = 80; // Increased startY value
+
+            labelCas.Location = new Point(panelCenterX - labelCas.Width - textBoxWidth, startY);
+            textBoxCas.Location = new Point(panelCenterX, startY);
+
+            labelCass.Location = new Point(panelCenterX - labelCass.Width - textBoxWidth, startY + textBoxHeight + verticalSpacing);
+            textBoxCass.Location = new Point(panelCenterX, startY + textBoxHeight + verticalSpacing);
+
+            labelImpozit.Location = new Point(panelCenterX - labelImpozit.Width - textBoxWidth, startY + 2 * (textBoxHeight + verticalSpacing));
+            textBoxImpozit.Location = new Point(panelCenterX, startY + 2 * (textBoxHeight + verticalSpacing));
+
+            // Adjust the position of the button
+            int buttonY = startY + 3 * (textBoxHeight + verticalSpacing);
+            buttonAdd.Location = new Point(panelCenterX - buttonAdd.Width / 2, buttonY);
+
+            var db = new ProiectDbContext();
+            var calculare = db.Calculare.FirstOrDefault();
+
+            textBoxCas.Text = calculare.Cas.ToString();
+            textBoxCass.Text = calculare.Cass.ToString();
+            textBoxImpozit.Text = calculare.Impozit.ToString();
+
+            buttonAdd.Click += (updateSender, updateEventArgs) =>
+            {
+                var db = new ProiectDbContext();
+                var calculare = db.Calculare.FirstOrDefault();
+
+                if (!int.TryParse(textBoxCas.Text, out int casValue) ||
+                    !int.TryParse(textBoxCass.Text, out int cassValue) ||
+                    !int.TryParse(textBoxImpozit.Text, out int impozitValue) ||
+                    ((casValue + cassValue + impozitValue) > 99))
+                {
+                    labelError.Text = "Datele introduse nu sunt valide sau suma procentelor depaseste 99!";
+                    labelError.Visible = true;
+                    System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer() { Interval = 3000 };
+                    timer.Tick += (timerSender, timerEventArgs) =>
+                    {
+                        labelError.Visible = false;
+                        timer.Stop();
+                    };
+                    timer.Start();
+
+                    return;
+                }
+
+                // Proceed with updating the database
+                calculare.Cas = casValue;
+                calculare.Cass = cassValue;
+                calculare.Impozit = impozitValue;
+
+                var confirmResult = new CustomMessageBox("Vreti sa modificati datele?", "Actiunea necesita confirmare").ShowDialog();
+                if (confirmResult == DialogResult.Yes)
+                {
+                    if (((calculare.Cas + calculare.Cass + calculare.Impozit) < 100))
+                    {
+                        foreach (var angajatToUpdate in db.Angajati)
+                        {
+                            int totalBrut = angajatToUpdate.Salar_baza + (int)(angajatToUpdate.Salar_baza * ((double)angajatToUpdate.Spor / 100)) + (int)angajatToUpdate.Premii_brute;
+
+                            int cas = (int)(totalBrut * ((double)calculare.Cas / 100));
+                            int cass = (int)(totalBrut * ((double)calculare.Cass / 100));
+                            int brutImpozabil = (int)(totalBrut - cas - cass);
+                            int impozit = (int)(brutImpozabil * ((double)calculare.Impozit / 100));
+                            int viratcard = totalBrut - impozit - cas - cass - angajatToUpdate.Retineri;
+
+                            angajatToUpdate.Total_brut = totalBrut;
+                            angajatToUpdate.Cas = cas;
+                            angajatToUpdate.Cass = cass;
+                            angajatToUpdate.Brut_Impozitabil = brutImpozabil;
+                            angajatToUpdate.Impozit = impozit;
+                            angajatToUpdate.Virat_Card = viratcard;
+                        }
+
+                        db.SaveChanges();
+
+                        labelSuccess.Text = "Datele au fost modificate!";
+                        labelSuccess.Visible = true;
+                        System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer() { Interval = 3000 };
+                        timer.Tick += (timerSender, timerEventArgs) =>
+                        {
+                            labelSuccess.Visible = false;
+                            timer.Stop();
+                        };
+                        timer.Start();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Datele introduse nu sunt corecte!.");
+                    }
+                }
+            };
+
+
+            panel1.Controls.Clear();
+            panel1.Controls.Add(textBoxCas);
+            panel1.Controls.Add(textBoxCass);
+            panel1.Controls.Add(textBoxImpozit);
+            panel1.Controls.Add(labelError);
+            panel1.Controls.Add(labelSuccess);
+            panel1.Controls.Add(buttonAdd);
+            panel1.Controls.Add(labelCas);
+            panel1.Controls.Add(labelCass);
+            panel1.Controls.Add(labelImpozit);
         }
 
         private void TIPARIREToolStripMenuItem_Click(object sender, EventArgs e)
