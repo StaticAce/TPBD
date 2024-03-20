@@ -975,11 +975,22 @@ namespace ProiectTPBD
         {
             panel1.Controls.Clear();
             Label label = new();
-            label.Text = "Testing testing 123";
+            label.Text = "Aplicația permite gestionarea datelor salariale a angajaților. Funcționalitățile principale includ:\n\n\n" +
+                         "- Actualizare date: actualizarea informațiilor pentru un angajat sau mai mulți, inclusiv premii brute și retineri.\n" +
+                         "- Adăugare angajați: adăugarea unor noi angajați cu validare și calcul automat al salariului.\n" +
+                         "- Ștergere angajați: căutarea și ștergerea angajaților după nume sau prenume.\n" +
+                         "- Stat plata: generarea și tipărirea statului de plată pentru toți angajații, inclusiv opțiunea de salvare în fișier PDF.\n" +
+                         "- Modificare Impozit: modificarea procentelor de impozitare cu protecție și recalculare automată a salariilor.\n" +
+                         "- Iesire: închiderea programului.";
             label.AutoSize = true;
-            label.Location = new Point(2, 2);
-            label.Font = new Font(label.Font.FontFamily, 10);
+            label.Font = new Font(label.Font.FontFamily, 17);
+
+            // Calculează coordonatele pentru a centra label-ul pe ecran
+            label.Location = new Point(300, 380);
+
             panel1.Controls.Add(label);
         }
+
+
     }
 }

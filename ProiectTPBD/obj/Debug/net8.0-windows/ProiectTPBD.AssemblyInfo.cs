@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProiectTPBD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c89d44a518e145d3ca20a89d14a532ca4b31ab9a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+088e9041c40c2cc492583a4a1472475c870aa0fc")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProiectTPBD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProiectTPBD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
