@@ -83,12 +83,30 @@ namespace ProiectTPBD
 
         private void FluturasiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            panel1.Controls.Clear();
+            Label label = new();
+            label.Text = "Functionalitatea va fi implementata in viitor! Contactati IT: 0770 212 312";
+            label.AutoSize = true;
+            label.Font = new Font(label.Font.FontFamily, 17);
+
+            // Calculează coordonatele pentru a centra label-ul pe ecran
+            label.Location = new Point(300, 380);
+
+            panel1.Controls.Add(label);
         }
 
         private void StatPlataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            panel1.Controls.Clear();
+            Label label = new();
+            label.Text = "Functionalitatea va fi implementata in viitor! Contactati IT: 0770 212 312";
+            label.AutoSize = true;
+            label.Font = new Font(label.Font.FontFamily, 17);
+
+            // Calculează coordonatele pentru a centra label-ul pe ecran
+            label.Location = new Point(300, 380);
+
+            panel1.Controls.Add(label);
         }
 
         private void StergereAngajatiToolStripMenuItem_Click(object sender, EventArgs e)
@@ -416,7 +434,7 @@ namespace ProiectTPBD
                 if (!Regex.IsMatch(nume, @"^[A-Za-zăîâșțĂÎÂȘȚ\s]+$") || string.IsNullOrEmpty(nume) ||
                     !Regex.IsMatch(prenume, @"^[A-Za-zăîâșțĂÎÂȘȚ\s]+$") || string.IsNullOrEmpty(prenume) ||
                     !Regex.IsMatch(functie, @"^[A-Za-zăîâșțĂÎÂȘȚ\s]+$") || string.IsNullOrEmpty(functie) ||
-                    !int.TryParse(salarBazaStr, out salarBaza) || !int.TryParse(sporStr, out spor))
+                    !int.TryParse(salarBazaStr, out salarBaza) || !int.TryParse(sporStr, out spor) || (salarBaza < 3300) || (spor < 0))
                 {
                     labelError.Text = "Datele introduse nu sunt valide!";
                     labelError.Visible = true;
@@ -722,25 +740,80 @@ namespace ProiectTPBD
                                 angajatToUpdate.Retineri = Convert.ToInt32(textBoxRetineri.Text);
                                 angajatToUpdate.Premii_brute = Convert.ToInt32(textBoxPremiiBrute.Text);
 
-                                int totalBrut = angajatToUpdate.Salar_baza + (int)(angajatToUpdate.Salar_baza * ((double)angajatToUpdate.Spor / 100)) + (int)angajatToUpdate.Premii_brute;
+                                // Verificare pentru valorile negative de tip int
+                                if (Convert.ToInt32(textBoxRetineri.Text) < 0 ||
+                                    Convert.ToInt32(textBoxSalarBaza.Text) < 0 ||
+                                    Convert.ToInt32(textBoxSpor.Text) < 0 ||
+                                    Convert.ToInt32(textBoxPremiiBrute.Text) < 0)
+                                {
+                                    labelError.Text = "Retineri, SalarBaza, Spor si Premii brute nu pot avea valori negative!";
+                                    labelError.Visible = true;
+                                    System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer() { Interval = 3000 };
+                                    timer.Tick += (timerSender, timerEventArgs) =>
+                                    {
+                                        labelError.Visible = false;
+                                        timer.Stop();
+                                    };
+                                    timer.Start();
+                                }
+                                else
+                                {
+                                    string nume = textBoxNume.Text.Trim();
+                                    string prenume = textBoxPrenume.Text.Trim();
+                                    string functie = textBoxFunctie.Text.Trim();
 
-                                int cas = (int)(totalBrut * ((double)calculare.Cas / 100));
-                                int cass = (int)(totalBrut * ((double)calculare.Cass / 100));
-                                int brutImpozabil = (int)(totalBrut - cas - cass);
-                                int impozit = (int)(brutImpozabil * ((double)calculare.Impozit / 100));
-                                int viratcard = totalBrut - impozit - cas - cass - angajatToUpdate.Retineri;
+                                    if (!Regex.IsMatch(nume, @"^[A-Za-zăîâșțĂÎÂȘȚ\s]+$") || string.IsNullOrEmpty(nume) ||
+                                        !Regex.IsMatch(prenume, @"^[A-Za-zăîâșțĂÎÂȘȚ\s]+$") || string.IsNullOrEmpty(prenume) ||
+                                        !Regex.IsMatch(functie, @"^[A-Za-zăîâșțĂÎÂȘȚ\s]+$") || string.IsNullOrEmpty(functie))
+                                    {
+                                        labelError.Text = "Numele, prenumele și funcția trebuie să conțină doar litere și spații!";
+                                        labelError.Visible = true;
+                                        System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer() { Interval = 3000 };
+                                        timer.Tick += (timerSender, timerEventArgs) =>
+                                        {
+                                            labelError.Visible = false;
+                                            timer.Stop();
+                                        };
+                                        timer.Start();
+                                    }
+                                    else
+                                    {
+                                        int totalBrut = angajatToUpdate.Salar_baza + (int)(angajatToUpdate.Salar_baza * ((double)angajatToUpdate.Spor / 100)) + (int)angajatToUpdate.Premii_brute;
 
-                                angajatToUpdate.Total_brut = totalBrut;
-                                angajatToUpdate.Cas = cas;
-                                angajatToUpdate.Cass = cass;
-                                angajatToUpdate.Brut_Impozitabil = brutImpozabil;
-                                angajatToUpdate.Impozit = impozit;
-                                angajatToUpdate.Virat_Card = viratcard;
+                                        int cas = (int)(totalBrut * ((double)calculare.Cas / 100));
+                                        int cass = (int)(totalBrut * ((double)calculare.Cass / 100));
+                                        int brutImpozabil = (int)(totalBrut - cas - cass);
+                                        int impozit = (int)(brutImpozabil * ((double)calculare.Impozit / 100));
+                                        int viratcard = totalBrut - impozit - cas - cass - angajatToUpdate.Retineri;
 
-                                db.SaveChanges();
-                                dataGridView.DataSource = db.Angajati.ToList();
+                                        if (totalBrut < 3300)
+                                        {
+                                            labelError.Text = "Pragul pentru salar minim nu este atins!";
+                                            labelError.Visible = true;
+                                            System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer() { Interval = 3000 };
+                                            timer.Tick += (timerSender, timerEventArgs) =>
+                                            {
+                                                labelError.Visible = false;
+                                                timer.Stop();
+                                            };
+                                            timer.Start();
+                                        }
+                                        else
+                                        {
+                                            angajatToUpdate.Total_brut = totalBrut;
+                                            angajatToUpdate.Cas = cas;
+                                            angajatToUpdate.Cass = cass;
+                                            angajatToUpdate.Brut_Impozitabil = brutImpozabil;
+                                            angajatToUpdate.Impozit = impozit;
+                                            angajatToUpdate.Virat_Card = viratcard;
 
-                                MessageBox.Show("Datele au fost actualizate cu succes!");
+                                            db.SaveChanges();
+                                            dataGridView.DataSource = db.Angajati.ToList();
+
+                                            MessageBox.Show("Datele au fost actualizate cu succes!");
+                                        }
+                                    }
+                                }                             
                             }
                         }
                         else
