@@ -39,7 +39,7 @@ namespace ProiectTPBD
             // 
             // CustomMessageBox
             // 
-            ClientSize = new Size(278, 244);
+            ClientSize = new Size(1552, 563);
             Name = "CustomMessageBox";
             ResumeLayout(false);
         }
@@ -341,31 +341,45 @@ namespace ProiectTPBD
             textBoxSpor.Location = new Point(panel1.Width - textBoxSpor.Width - 80, 400);
             textBoxSpor.Size = new Size(150, 50);
 
-            //// Label for Retineri
-            //Label labelRetineri = new Label();
-            //labelRetineri.Anchor = AnchorStyles.Right | AnchorStyles.Top;
-            //labelRetineri.Location = new Point(panel1.Width - labelRetineri.Width - 280, 450);
-            //labelRetineri.Size = new Size(150, 50);
-            //labelRetineri.Text = ("Retineri:");
-            //labelRetineri.Font = new Font(labelRetineri.Font.FontFamily, 10);
+            // Label for PremiiBrute
+            Label labelPremiiBrute = new Label();
+            labelPremiiBrute.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            labelPremiiBrute.Location = new Point(panel1.Width - labelPremiiBrute.Width - 280, 450);
+            labelPremiiBrute.Size = new Size(150, 50);
+            labelPremiiBrute.Text = ("Premii Brute:");
+            labelPremiiBrute.Font = new Font(labelSpor.Font.FontFamily, 10);
 
-            //// TextBox for Retineri
-            //TextBox textBoxRetineri = new TextBox();
-            //textBoxRetineri.Anchor = AnchorStyles.Right | AnchorStyles.Top;
-            //textBoxRetineri.Location = new Point(panel1.Width - textBoxRetineri.Width - 80, 450);
-            //textBoxRetineri.Size = new Size(150, 50);
+            // TextBox for PremiiBrute
+            TextBox textBoxPremiiBrute = new TextBox();
+            textBoxPremiiBrute.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            textBoxPremiiBrute.Location = new Point(panel1.Width - textBoxPremiiBrute.Width - 80, 450);
+            textBoxPremiiBrute.Size = new Size(150, 50);
+
+            // Label for Retineri
+            Label labelRetineri = new Label();
+            labelRetineri.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            labelRetineri.Location = new Point(panel1.Width - labelRetineri.Width - 280, 500);
+            labelRetineri.Size = new Size(150, 50);
+            labelRetineri.Text = ("Retineri:");
+            labelRetineri.Font = new Font(labelRetineri.Font.FontFamily, 10);
+
+            // TextBox for Retineri
+            TextBox textBoxRetineri = new TextBox();
+            textBoxRetineri.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+            textBoxRetineri.Location = new Point(panel1.Width - textBoxRetineri.Width - 80, 500);
+            textBoxRetineri.Size = new Size(150, 50);
 
             // Button for adding new object
             Button buttonAdd = new Button();
             buttonAdd.Anchor = AnchorStyles.Right | AnchorStyles.Top;
-            buttonAdd.Location = new Point(panel1.Width - buttonAdd.Width - 105, 500);
+            buttonAdd.Location = new Point(panel1.Width - buttonAdd.Width - 105, 600);
             buttonAdd.Size = new Size(150, 50);
             buttonAdd.Text = "Adaugare";
 
             // Label for error message
             Label labelError = new Label();
             labelError.Anchor = AnchorStyles.Right | AnchorStyles.Top;
-            labelError.Location = new Point(panel1.Width - labelError.Width - 80, 550);
+            labelError.Location = new Point(panel1.Width - labelError.Width - 80, 650);
             labelError.Size = new Size(150, 200);
             labelError.ForeColor = Color.Red;
             labelError.Font = new Font(labelError.Font.FontFamily, 10);
@@ -388,6 +402,10 @@ namespace ProiectTPBD
                 a.Virat_Card
             }).ToList();
 
+            textBoxSpor.Text = "0";
+            textBoxPremiiBrute.Text = "0";
+            textBoxRetineri.Text = "0";
+
             buttonSearch.Click += (searchSender, searchEventArgs) =>
             {
                 string searchValue = textBox.Text.Trim().ToLower();
@@ -397,6 +415,7 @@ namespace ProiectTPBD
                 {
                     var db = new ProiectDbContext();
                     var angajati = db.Angajati.ToList();
+                    var initializare = db.Angajati.FirstOrDefault();
 
                     List<Angajat> filteredAngajati = new List<Angajat>();
 
@@ -493,6 +512,8 @@ namespace ProiectTPBD
             panel1.Controls.Add(textBoxFunctie);
             panel1.Controls.Add(textBoxSalarBaza);
             panel1.Controls.Add(textBoxSpor);
+            panel1.Controls.Add(textBoxPremiiBrute);
+            panel1.Controls.Add(textBoxRetineri);
             panel1.Controls.Add(labelError);
             panel1.Controls.Add(buttonAdd);
             panel1.Controls.Add(labelNume);
@@ -500,6 +521,8 @@ namespace ProiectTPBD
             panel1.Controls.Add(labelFunctie);
             panel1.Controls.Add(labelSalarBaza);
             panel1.Controls.Add(labelSpor);
+            panel1.Controls.Add(labelPremiiBrute);
+            panel1.Controls.Add(labelRetineri);
         }
 
 
