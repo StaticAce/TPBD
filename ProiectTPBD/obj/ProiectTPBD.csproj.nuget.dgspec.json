@@ -53,9 +53,13 @@
               "target": "Package",
               "version": "[8.0.2, )"
             },
-            "Microsoft.PowerBI.Api": {
+            "ReportViewerCore.NETCore": {
               "target": "Package",
-              "version": "[4.18.0, )"
+              "version": "[15.1.19, )"
+            },
+            "ReportViewerCore.WinForms": {
+              "target": "Package",
+              "version": "[15.1.19, )"
             }
           },
           "imports": [

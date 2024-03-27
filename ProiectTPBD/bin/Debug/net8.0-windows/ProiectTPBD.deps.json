@@ -9,7 +9,9 @@
       "ProiectTPBD/1.0.0": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "8.0.2",
-          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2"
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2",
+          "ReportViewerCore.NETCore": "15.1.19",
+          "ReportViewerCore.WinForms": "15.1.19"
         },
         "runtime": {
           "ProiectTPBD.dll": {}
@@ -54,6 +56,114 @@
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "4.700.20.21406"
+          }
+        }
+      },
+      "Microsoft.CodeAnalysis.Analyzers/3.3.4": {},
+      "Microsoft.CodeAnalysis.Common/4.8.0-3.final": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Analyzers": "3.3.4",
+          "System.Collections.Immutable": "7.0.0",
+          "System.Reflection.Metadata": "7.0.0",
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.CodeAnalysis.dll": {
+            "assemblyVersion": "4.8.0.0",
+            "fileVersion": "4.800.23.50404"
+          }
+        },
+        "resources": {
+          "lib/net7.0/cs/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net7.0/de/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net7.0/es/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net7.0/fr/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net7.0/it/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net7.0/ja/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net7.0/ko/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net7.0/pl/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net7.0/pt-BR/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net7.0/ru/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net7.0/tr/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net7.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net7.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.CodeAnalysis.VisualBasic/4.8.0-3.final": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.Common": "4.8.0-3.final"
+        },
+        "runtime": {
+          "lib/net7.0/Microsoft.CodeAnalysis.VisualBasic.dll": {
+            "assemblyVersion": "4.8.0.0",
+            "fileVersion": "4.800.23.50404"
+          }
+        },
+        "resources": {
+          "lib/net7.0/cs/Microsoft.CodeAnalysis.VisualBasic.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net7.0/de/Microsoft.CodeAnalysis.VisualBasic.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net7.0/es/Microsoft.CodeAnalysis.VisualBasic.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net7.0/fr/Microsoft.CodeAnalysis.VisualBasic.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net7.0/it/Microsoft.CodeAnalysis.VisualBasic.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net7.0/ja/Microsoft.CodeAnalysis.VisualBasic.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net7.0/ko/Microsoft.CodeAnalysis.VisualBasic.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net7.0/pl/Microsoft.CodeAnalysis.VisualBasic.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net7.0/pt-BR/Microsoft.CodeAnalysis.VisualBasic.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net7.0/ru/Microsoft.CodeAnalysis.VisualBasic.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net7.0/tr/Microsoft.CodeAnalysis.VisualBasic.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net7.0/zh-Hans/Microsoft.CodeAnalysis.VisualBasic.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net7.0/zh-Hant/Microsoft.CodeAnalysis.VisualBasic.resources.dll": {
+            "locale": "zh-Hant"
           }
         }
       },
@@ -430,6 +540,52 @@
         }
       },
       "Microsoft.Win32.SystemEvents/6.0.0": {},
+      "ReportViewerCore.NETCore/15.1.19": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.VisualBasic": "4.8.0-3.final",
+          "System.CodeDom": "4.7.0",
+          "System.Drawing.Common": "6.0.0",
+          "System.IO.Packaging": "4.7.0",
+          "System.Resources.Extensions": "4.7.1",
+          "System.Windows.Extensions": "6.0.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.ReportViewer.Common.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.1404.0"
+          },
+          "lib/net8.0/Microsoft.ReportViewer.DataVisualization.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.1404.0"
+          },
+          "lib/net8.0/Microsoft.ReportViewer.NETCore.dll": {
+            "assemblyVersion": "15.1.19.0",
+            "fileVersion": "15.1.19.0"
+          },
+          "lib/net8.0/Microsoft.ReportViewer.ProcessingObjectModel.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.1404.0"
+          }
+        }
+      },
+      "ReportViewerCore.WinForms/15.1.19": {
+        "dependencies": {
+          "Microsoft.CodeAnalysis.VisualBasic": "4.8.0-3.final",
+          "System.CodeDom": "4.7.0",
+          "System.Drawing.Common": "6.0.0",
+          "System.IO.Packaging": "4.7.0",
+          "System.Resources.Extensions": "4.7.1",
+          "System.Windows.Extensions": "6.0.0"
+        },
+        "runtime": {
+          "lib/net8.0-windows/Microsoft.ReportViewer.WinForms.dll": {
+            "assemblyVersion": "15.1.19.0",
+            "fileVersion": "15.1.19.0"
+          }
+        }
+      },
+      "System.CodeDom/4.7.0": {},
+      "System.Collections.Immutable/7.0.0": {},
       "System.Configuration.ConfigurationManager/6.0.1": {
         "dependencies": {
           "System.Security.Cryptography.ProtectedData": "6.0.0",
@@ -465,6 +621,7 @@
           "System.Security.Principal.Windows": "5.0.0"
         }
       },
+      "System.IO.Packaging/4.7.0": {},
       "System.Memory/4.5.4": {},
       "System.Memory.Data/1.0.2": {
         "dependencies": {
@@ -479,6 +636,12 @@
         }
       },
       "System.Numerics.Vectors/4.5.0": {},
+      "System.Reflection.Metadata/7.0.0": {
+        "dependencies": {
+          "System.Collections.Immutable": "7.0.0"
+        }
+      },
+      "System.Resources.Extensions/4.7.1": {},
       "System.Runtime/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -571,6 +734,27 @@
       "sha512": "sha512-yuvf07qFWFqtK3P/MRkEKLhn5r2UbSpVueRziSqj0yJQIKFwG1pq9mOayK3zE5qZCTs0CbrwL9M6R8VwqyGy2w==",
       "path": "microsoft.bcl.asyncinterfaces/1.1.1",
       "hashPath": "microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512"
+    },
+    "Microsoft.CodeAnalysis.Analyzers/3.3.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AxkxcPR+rheX0SmvpLVIGLhOUXAKG56a64kV9VQZ4y9gR9ZmPXnqZvHJnmwLSwzrEP6junUF11vuc+aqo5r68g==",
+      "path": "microsoft.codeanalysis.analyzers/3.3.4",
+      "hashPath": "microsoft.codeanalysis.analyzers.3.3.4.nupkg.sha512"
+    },
+    "Microsoft.CodeAnalysis.Common/4.8.0-3.final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qojulunbDAItriFYrqVmsrAW8XRxxEUCQirDUcUIGUDPyzbuW84SIp7/ts6CUaYrdKP4S4yiXvkUEqJ5gco4fw==",
+      "path": "microsoft.codeanalysis.common/4.8.0-3.final",
+      "hashPath": "microsoft.codeanalysis.common.4.8.0-3.final.nupkg.sha512"
+    },
+    "Microsoft.CodeAnalysis.VisualBasic/4.8.0-3.final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qUt4yAHyuATy01aPhs7cmEQfiymbLYbnrOmPAo378X5K8QSl0SLPIXpsA74U+TZ2YY1KZH3goepwHE/fv6eO2Q==",
+      "path": "microsoft.codeanalysis.visualbasic/4.8.0-3.final",
+      "hashPath": "microsoft.codeanalysis.visualbasic.4.8.0-3.final.nupkg.sha512"
     },
     "Microsoft.CSharp/4.5.0": {
       "type": "package",
@@ -789,6 +973,34 @@
       "path": "microsoft.win32.systemevents/6.0.0",
       "hashPath": "microsoft.win32.systemevents.6.0.0.nupkg.sha512"
     },
+    "ReportViewerCore.NETCore/15.1.19": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8ZowBAGgGcDMTwDu8VxpbU/e7/DEW6n+C91JbKoxoGY17JmT/5bJ3rYOXSXvRvzuIw5m3Yz+ppd/eibkV9RL5w==",
+      "path": "reportviewercore.netcore/15.1.19",
+      "hashPath": "reportviewercore.netcore.15.1.19.nupkg.sha512"
+    },
+    "ReportViewerCore.WinForms/15.1.19": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oxQ+9M/bQirdjMjnmtrGPKp+Kx8w7mQNfJAcVDeUIj/J3bY9tNk/AtNY876w1MNP087jvzbqDSyZdK0/FGtL0Q==",
+      "path": "reportviewercore.winforms/15.1.19",
+      "hashPath": "reportviewercore.winforms.15.1.19.nupkg.sha512"
+    },
+    "System.CodeDom/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Hs9pw/kmvH3lXaZ1LFKj3pLQsiGfj2xo3sxSzwiLlRL6UcMZUTeCfoJ9Udalvn3yq5dLlPEZzYegrTQ1/LhPOQ==",
+      "path": "system.codedom/4.7.0",
+      "hashPath": "system.codedom.4.7.0.nupkg.sha512"
+    },
+    "System.Collections.Immutable/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dQPcs0U1IKnBdRDBkrCTi1FoajSTBzLcVTpjO4MBCMC7f4pDOIPzgBoX8JjG7X6uZRJ8EBxsi8+DR1JuwjnzOQ==",
+      "path": "system.collections.immutable/7.0.0",
+      "hashPath": "system.collections.immutable.7.0.0.nupkg.sha512"
+    },
     "System.Configuration.ConfigurationManager/6.0.1": {
       "type": "package",
       "serviceable": true,
@@ -831,6 +1043,13 @@
       "path": "system.io.filesystem.accesscontrol/5.0.0",
       "hashPath": "system.io.filesystem.accesscontrol.5.0.0.nupkg.sha512"
     },
+    "System.IO.Packaging/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9VV4KAbgRQZ79iEoG40KIeZy38O30oWwewScAST879+oki8g/Wa2HXZQgrhDDxQM4GkP1PnRJll05NMiVPbYAw==",
+      "path": "system.io.packaging/4.7.0",
+      "hashPath": "system.io.packaging.4.7.0.nupkg.sha512"
+    },
     "System.Memory/4.5.4": {
       "type": "package",
       "serviceable": true,
@@ -851,6 +1070,20 @@
       "sha512": "sha512-QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
       "path": "system.numerics.vectors/4.5.0",
       "hashPath": "system.numerics.vectors.4.5.0.nupkg.sha512"
+    },
+    "System.Reflection.Metadata/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MclTG61lsD9sYdpNz9xsKBzjsmsfCtcMZYXz/IUr2zlhaTaABonlr1ESeompTgM+Xk+IwtGYU7/voh3YWB/fWw==",
+      "path": "system.reflection.metadata/7.0.0",
+      "hashPath": "system.reflection.metadata.7.0.0.nupkg.sha512"
+    },
+    "System.Resources.Extensions/4.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-cuRdQps4IdpvMzgRrtKpXLckKXvc6XzgmTNQ75wf9snAITrfDK759ucS+US0gt1vmspTjCHKSCXgvp0ysfrjkA==",
+      "path": "system.resources.extensions/4.7.1",
+      "hashPath": "system.resources.extensions.4.7.1.nupkg.sha512"
     },
     "System.Runtime/4.3.0": {
       "type": "package",

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Reporting.WinForms;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -84,29 +85,43 @@ namespace ProiectTPBD
         private void FluturasiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            Label label = new();
-            label.Text = "Functionalitatea va fi implementata in viitor! Contactati IT: 0770 212 312";
-            label.AutoSize = true;
-            label.Font = new Font(label.Font.FontFamily, 17);
 
-            // Calculează coordonatele pentru a centra label-ul pe ecran
-            label.Location = new Point(300, 380);
+            var reportViewer = new ReportViewer();
+            reportViewer.Dock = DockStyle.Fill;
+            reportViewer.Location = new Point(0, 0);
+            panel1.Controls.Add(reportViewer);
 
-            panel1.Controls.Add(label);
+            var stream = new MemoryStream(Reports.fluturasi);
+            stream.Position = 0;
+
+            var context = new ProiectDbContext();
+            var data = context.Angajati;
+
+            reportViewer.LocalReport.LoadReportDefinition(stream);
+            reportViewer.LocalReport.DataSources
+                .Add(new ReportDataSource("DataSet1", data));
+            reportViewer.RefreshReport();
         }
 
         private void StatPlataToolStripMenuItem_Click(object sender, EventArgs e)
         {
             panel1.Controls.Clear();
-            Label label = new();
-            label.Text = "Functionalitatea va fi implementata in viitor! Contactati IT: 0770 212 312";
-            label.AutoSize = true;
-            label.Font = new Font(label.Font.FontFamily, 17);
 
-            // Calculează coordonatele pentru a centra label-ul pe ecran
-            label.Location = new Point(300, 380);
+            var reportViewer = new ReportViewer();
+            reportViewer.Dock = DockStyle.Fill;
+            reportViewer.Location = new Point(0, 0);
+            panel1.Controls.Add(reportViewer);
 
-            panel1.Controls.Add(label);
+            var stream = new MemoryStream(Reports.statdeplata);
+            stream.Position = 0;
+
+            var context = new ProiectDbContext();
+            var data = context.Angajati;
+
+            reportViewer.LocalReport.LoadReportDefinition(stream);
+            reportViewer.LocalReport.DataSources
+                .Add(new ReportDataSource("DataSet1", data));
+            reportViewer.RefreshReport();
         }
 
         private void StergereAngajatiToolStripMenuItem_Click(object sender, EventArgs e)
